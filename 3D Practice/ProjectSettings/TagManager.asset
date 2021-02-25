@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
+  - banana
+  - partical
   layers:
   - Default
   - TransparentFX
