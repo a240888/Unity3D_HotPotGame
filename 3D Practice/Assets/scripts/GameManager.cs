@@ -19,18 +19,24 @@ public class GameManager : MonoBehaviour
     public Material[] material;
     MeshRenderer render;
     public GameObject Player;
+    public float ChangeTime = 2f;
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
     }
+   
     public void ChangePicture(float time)
     {
-        render = Player.GetComponent<MeshRenderer>();
-        if (time < 1)
+        render = Player.GetComponent<MeshRenderer>();       
+        if (ChangeTime >= 0.1)
+        {
+            ChangeTime -= Player.GetComponent<Transform>().position.z / 1000000;
+        }
+        if (time < ChangeTime/2)
         {
             render.sharedMaterial = material[0];
         }
-        else if (time < 2)
+        else if (time < ChangeTime)
         {
             render.sharedMaterial = material[1];
         }
@@ -54,8 +60,12 @@ public class GameManager : MonoBehaviour
         if (GameOver == false)
         {
             GameOver = true;
-            Invoke("Restart", restartDelay);
+            Invoke("lose", restartDelay);
         }
+    }
+    public void lose()
+    {
+        SceneManager.LoadScene("end");
     }
     public void slide()
     {

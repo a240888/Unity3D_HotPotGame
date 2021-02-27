@@ -8,6 +8,10 @@ public class scores : MonoBehaviour
     public Transform Player;
     public Text ScoreText;
     public GameObject player;
+    private void Start()
+    {
+     
+    }
     void Update()
     {
         if (player.GetComponent<PlayerMovement>().enabled == true && FindObjectOfType<PlayerMovement>().lose==false)

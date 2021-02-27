@@ -8,7 +8,7 @@ public class PlayerCollicion : MonoBehaviour
     bool gameover = false;
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.name == "banana")
+        if (collider.tag == "banana")
         {
             FindObjectOfType<GameManager>().slide();
             FindObjectOfType<PlayerMovement>().Hitbanana();

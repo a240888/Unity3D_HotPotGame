@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (time < 2)
+        if (time < FindObjectOfType<GameManager>().GetComponent<GameManager>().ChangeTime)
         {
             time += 1f*Time.deltaTime;
         }
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Hitbanana()
     {
-        fowardforce += 1000;
+        fowardforce += 50;
     }
     void FixedUpdate()
     {
